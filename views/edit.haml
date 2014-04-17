@@ -1,0 +1,5 @@
+%h1
+  #{layer['name']}
+= find_and_preserve "<div id='editor'>#{layer['Datasource']['table']}</div>"
+%script{:src => '/js/ace.js', :type => 'text/javascript', :charset => 'utf-8'}
+%script{:type => 'text/javascript'} initEditor("#{layer[:name]}");

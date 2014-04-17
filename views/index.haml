@@ -1,0 +1,13 @@
+- doc['Layer'].each do |layer|
+  - if !layer['Datasource']['table'].nil? then
+    .row
+      %h3
+        #{layer['name']}
+    .row
+      %pre
+        %code
+          #{layer['Datasource']['table']}
+    .row.text-right
+      %a.btn.btn-default{:href => "/edit/#{layer['name']}"}
+        %span.glyphicon.glyphicon-pencil
+        Edit

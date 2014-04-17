@@ -1,0 +1,30 @@
+!!!
+%html
+  %head
+    %meta{:'http-equiv' => 'Content-Type', :content => 'text/html; charset=UTF-8'}
+    %title #{title}
+    %link{:href => '/css/bootstrap.min.css', :rel => 'stylesheet'}                  |
+    %link{:href => '/css/bootstrap-theme.min.css', :rel => 'stylesheet'}
+    %link{:href => '/css/github.css', :rel => 'stylesheet'}
+    %link{:href => '/css/mml-tools.css', :rel => 'stylesheet'}
+    %script{:src => '/js/jquery-2.1.0.min.js', :type => 'text/javascript', :charset => 'utf-8'}
+    %script{:src => '/js/bootstrap.min.js', :type => 'text/javascript', :charset => 'utf-8'}
+    %script{:src => '/js/mml-tools.js', :type => 'text/javascript', :charset => 'utf-8'}
+    %script{:src => '/js/highlight.pack.js', :type => 'text/javascript', :charset => 'utf-8'}
+  %body
+    .navbar.navbar-inverse.navbar-fixed-top
+      .navbar-inner
+        .container
+          %a.navbar-brand{:href => '/'} #{title}
+          .collapse.navbar-collapse
+            %ul.nav.navbar-nav
+              %li
+                %a{:href => "/"}
+                  Home
+              %li
+                - if !layer.nil?
+                  %a{:href => "#", :onClick => "saveSql(\"#{layer['name']}\");"}
+                    Save
+    .container#page
+      = yield
+    %script hljs.initHighlightingOnLoad();
